@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Homework
+    </title>
+  </head>
+  <body>
+    <button>9a</button>
+    <button class="js-second-button">9b</button>
+    <p>-</p>
+    <button onclick="
+      selector('heads');
+    ">heads</button>
+    <button onclick="
+      selector('tails');
+    ">tails</button>
+    <p class="js-p1"></p>
+    <p>-</p>
+
+
+    <input type="text" placeholder="Your name" class="js-input-name" onkeydown="
+      if (event.key === 'Enter') {
+        submitName()
+      }
+    ">
+
+    <button onclick="
+      submitName();
+    ">Submit</button>
+    
+    <p class="js-output"></p>
+    <p>-</p>
+
+    <input class="js-onkeyup-text" onkeyup="
+      const inputElement = document.querySelector('.js-onkeyup-text');
+      document.querySelector('.js-onkeyup-event')
+        .innerHTML = inputElement.value;
+    ">
+    <p class="js-onkeyup-event"></p>
+
+
+    <script>
+
+
+
+
+
+
+      function submitName() {
+        const inputElement = document.querySelector('.js-input-name');
+        document.querySelector('.js-output')
+          .innerHTML = `Your name is: ${inputElement.value}`;
+      }
+
+
+      function selector(choice) {
+        if (choice === 'heads') {
+          document.querySelector('.js-p1')
+            .innerHTML = `You chose: ${choice}`
+        } else if (choice === 'tails') {
+          document.querySelector('.js-p1')
+            .innerHTML = `You chose: ${choice}`
+        }
+      }
+
+
+      console.log(document.querySelector('button'));
+      document.querySelector('.js-second-button')
+        .innerHTML = '9b done';
+    </script>
+  </body>
+</html>

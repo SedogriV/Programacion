@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To do List</title>
+    <link rel="stylesheet" href="homework-styles/11x.css">
+  </head>
+  <body>
+    <p>Todo List</p>
+    <div class="input-grid">
+      <input onkeyup="
+        if (event.key === 'Enter') {
+          addTodo();
+        }
+        " class="js-name-input name-input" placeholder="Todo name">
+        <input type="date" class="js-due-date-input due-date-input">
+        <button class="add button" onclick="
+        addTodo();      
+      ">Add</button>
+    </div>
+    
+
+    <div class="js-todo-list list-grid"></div>
+
+    <script src="homework-sctipts/11x.js"></script>
+  </body>
+</html>  

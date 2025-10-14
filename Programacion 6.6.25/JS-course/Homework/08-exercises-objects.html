@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>08 - objects</title>
+</head>
+<body>
+
+
+
+  <script>  
+    
+    const camista = {
+      name: 'camista',
+      price: 585,
+    };
+
+    const basketball = {
+      name: 'basketball',
+      price: 2095
+    };
+    console.log(basketball);
+
+    basketball.price += 500;
+    console.log(basketball);
+
+    basketball['delivery-time'] = '3 days';
+    console.log(basketball);
+   
+
+    function comparePrices(price1, price2, name1, name2) {
+      price1 > price2 ? console.log(`${name2} es mas barato`) : console.log(`${name1} es mas barato`)
+    }
+
+    comparePrices(basketball.price, camista.price, basketball.name, camista.name)
+
+
+    const camista1 = {
+      name: 'camista',
+      price: 585,
+    };
+    const camista2 = {
+      name: 'camista',
+      price: 585,
+    };
+    const camista3 = {
+      name: 'camista',
+      price: 685,
+    };
+
+
+    function isSamePrdocut(producto1, producto2) {
+      if (producto1.price === producto2.price && producto1.name === producto2.name) {
+        console.log('son lo mismo');
+      } else {
+        console.log('son diferentes productos');
+      }
+    }
+
+
+
+    isSamePrdocut(camista1, camista2);
+    isSamePrdocut(camista2, camista3);
+    isSamePrdocut(camista1, camista3);
+
+
+    console.log('HELLO PEople'.toLowerCase());
+
+    console.log('test1 '.repeat(10));
+
+
+
+
+  </script>
+  
+</body>
+</html>

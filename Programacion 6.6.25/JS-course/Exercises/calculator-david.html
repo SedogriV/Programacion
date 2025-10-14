@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    body {
+      padding: 50px;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .calculator-display {
+      border-radius: 5px;
+      border: solid gray .5px;
+      height: 35px;
+      font-size: 25px;
+      color: rgb(83, 83, 83);
+      text-align: right;
+    }
+
+    .calculator-display:active {
+      border: none;
+    }
+
+    .calculator {
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      width: 300px;
+      height: auto;
+      background-color: rgb(240, 240, 240);
+      row-gap: 2px;
+      column-gap: 2px;
+      align-items: center;
+      border-radius: 5px;
+      border: solid gray .5px;
+    }
+
+    button {
+      background-color: rgb(250, 250, 250);
+      border: solid 0.5px rgb(170, 170, 170);
+      border-radius: 5px;
+      height: 50px;
+      font-size: 20px;
+      color: rgb(83, 83, 83);
+      box-shadow: 0 0 0 rgb(231, 231, 231)
+    }
+    button:hover {
+      background-color: rgb(240, 240, 240);
+    }
+
+    .button-igual {
+      background-color: rgb(77, 154, 255);
+      color: white;
+    }
+    .button-igual:hover {
+      background-color: rgb(43, 135, 255);
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <input type="text" class="calculator-display" id="display">
+
+    <div class="calculator">
+          <button onclick="
+      calculationProcess('7');
+      ">7</button>
+
+      <button onclick="
+      calculationProcess('8');
+      ">8</button>
+
+      <button onclick="
+      calculationProcess('9');
+      ">9</button>
+
+      <button onclick="
+      getOperator(' + ');
+      ">+</button>
+
+      <button onclick="
+      calculationProcess('4');
+      ">4</button>
+ 
+      <button onclick="
+      calculationProcess('5');
+      ">5</button>
+    
+      <button onclick="
+      calculationProcess('6');
+      ">6</button>
+
+      <button onclick="
+      getOperator(' - ');
+      ">-</button>
+
+      <button onclick="
+      calculationProcess('1');
+      ">1</button>
+
+      <button onclick="
+      calculationProcess('2');
+      ">2</button>
+
+      <button onclick="
+      calculationProcess('3');
+      ">3</button>
+
+      <button onclick="
+      getOperator(' * ');
+      ">*</button>
+
+      <button onclick="
+      getOperator(' / ');
+      ">/</button>
+
+      <button onclick="
+      calculationProcess('0');
+      ">0</button>
+
+      <button onclick="
+      calculationProcess('.');
+      ">.</button>
+
+      <button class="button-igual" onclick="
+      calculate();
+      ">=</button>
+    </div>
+
+
+      <button onclick="
+      limpiar();
+      ">Clear</button>
+
+  
+  <script>
+
+    let num1 = '';
+    let num2 = '';
+    let result;
+    let operator;
+    const display = document.getElementById('display')
+    display.value = '0'
+
+      function calculate() {
+        if (!num2) {
+          return;
+        }
+        if (operator === ' - ') {
+          result = display.value = JSON.stringify(parseFloat(num1) - parseFloat(num2));
+          num1 = result;
+          num2 = '';
+          operator = undefined;
+          return;
+        } 
+        if (operator === ' * ') {
+          result = display.value = JSON.stringify(parseFloat(num1) * parseFloat(num2));
+          num1 = result;
+          num2 = '';
+          operator = undefined;
+          return;
+        } 
+        if (operator === ' / ' && num2 !== '0') {
+          result = display.value = JSON.stringify(parseFloat(num1) / parseFloat(num2));
+          num1 = result;
+          num2 = '';
+          operator = undefined;
+        } else if (operator === ' / ' && num2 == '0') {
+          num1 = '';
+          num2 = '';
+          display.value = 'Math error';
+        }
+        if (operator === ' + ') {
+          result = display.value = JSON.stringify(parseFloat(num1) + parseFloat(num2));
+          num1 = result;
+          num2 = '';
+          operator = undefined;
+          return;
+        } 
+      }
+
+
+      function calculateOperator() {
+        if (operator === ' - ') {
+          result = display.value = JSON.stringify(parseFloat(num1) - parseFloat(num2));
+          num1 = result;
+          num2 = '';
+          operator = ' - ';
+          return;
+        } 
+        if (operator === ' * ') {
+          result = display.value = JSON.stringify(parseFloat(num1) * parseFloat(num2));
+          num1 = result;
+          num2 = '';
+          operator = ' * ';
+          return;
+        } 
+        if (operator === ' / ' && num2 !== '0') {
+          result = display.value = JSON.stringify(parseFloat(num1) / parseFloat(num2));
+          num1 = result;
+          num2 = '';
+          operator = ' / ';
+        } else if (operator === ' / ' && num2 == '0') {
+          num1 = '';
+          num2 = '';
+          display.value = 'Math error';
+        }
+        if (operator === ' + ') {
+          result = display.value = JSON.stringify(parseFloat(num1) + parseFloat(num2));
+          num1 = result;
+          num2 = '';
+          operator = ' + ';
+          return;
+        } 
+      }
+
+      function limpiar() {
+        console.log("Before clear:", {num1, operator, num2, display: display.value});
+        num1 = '';
+        num2 = '';
+        operator = undefined;
+        display.value = '0';
+      }
+    
+
+      function getNum1(num) {
+        if (num === '.' && num1.includes('.')) {
+          return display.value = num1;
+        } else {
+          num1 += num;
+          display.value = num1;
+          return num1;
+        }
+
+        
+      }
+
+      function getNum2(num) {
+        if (num === '.' && num2.includes('.')) {
+          return display.value = num2;
+        } else {
+          num2 += num;
+          display.value = num2;
+          return num2;
+        }
+      }
+      
+      function getOperator(oper) {
+        if ((operator === ' + ' || operator === ' - ' || operator === ' * ' || operator === ' / ') && (num1 && num2)) {
+          calculateOperator();
+          operator = oper;
+        } 
+        else if 
+          (!operator && num1 === '')  {
+          num1 = '0'
+          operator = '';
+          operator += oper;
+          display.value = num1;
+          return operator;
+        }
+        else if (!operator) {
+          operator = '';
+          operator += oper;
+          display.value = num1;
+          return operator;
+        }
+      }
+
+      function calculationProcess(num) {
+        if (!operator) {
+          return getNum1(num);
+        } 
+        if (operator || num1 === result) {
+          return getNum2(num);
+        }  
+      }
+
+
+
+
+  </script>
+</body>
+</html>

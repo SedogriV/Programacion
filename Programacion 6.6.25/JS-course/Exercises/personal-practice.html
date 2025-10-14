@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loops and array practice</title>
+</head>
+<body>
+  <script>
+    const officeItems = ["stapler", "monitor", "computer", "desk", "lamp", "computer", "lamp", "stapler", "computer",  "computer"]
+
+
+    function countItems(array, item) {
+      let result = 0;
+      for (let i = 0; i < array.length; i++) {
+        const value = array[i];
+        if (item === value) {
+          result++;
+        }
+      }
+      return result;
+    }
+
+
+    console.log(countItems(officeItems, "lamp"))
+
+
+
+    const peopleWhoWantToSeeMadMaxFuryRoad = [
+  {
+    name: "Mike",
+    age: 12,
+    gender: "male"
+  },{
+    name: "Madeline",
+    age: 80,
+    gender: "female"
+  },{
+    name: "Cheryl",
+    age: 22,
+    gender: "female"
+  },{
+    name: "Sam",
+    age: 30,
+    gender: "male"
+  },{
+    name: "Suzy",
+    age: 4,
+    gender: "female"
+  }
+] 
+
+  function checkAge(array) {
+    const copyArray = array.slice();
+
+    for (let i = 0; i < copyArray.length; i++) {
+      const value = copyArray[i];
+      if  (value.age < 18 && value.gender === 'female') {
+          value.gender = 'her';
+          console.log(`${value.name} is not old enough to see Mad Max, don't let ${value.gender} in.`);
+      } else if (value.age < 18 && value.gender === 'male') {
+          value.gender = 'him';
+          console.log(`${value.name} is not old enough to see Mad Max, don't let ${value.gender} in.`);
+      } else if (value.age > 18 && value.gender === 'female') {
+          value.gender = 'He';
+          console.log(`${value.name} is old enough to see Mad Max. ${value.gender} can come in to see it `);
+      } else if (value.age > 18 && value.gender === 'male') {
+          value.gender = 'She';
+          console.log(`${value.name} is old enough to see Mad Max. ${value.gender} can come in to see it `);
+      }
+    } 
+  }
+
+checkAge(peopleWhoWantToSeeMadMaxFuryRoad)
+
+
+  const nums = [31, 14, -6, 75, 0, 1];
+
+
+  function pickTheSmallest(array) {
+    let result = array[0];
+    for (let i = 0; i < array.length; i++) {
+      const element = array[i];
+      if (result > element) {
+        result = element;
+      }
+    }
+    return result;
+  }
+
+  console.log(pickTheSmallest(nums));
+
+
+
+ const lights1 = [2, 5, 435, 4, 3] // "The light is on"
+ const lights2 = [1, 1, 1, 1, 3]   // "The light is on"
+ const lights3 = [9, 3, 4, 2]      // "The light is off"
+
+
+    function turnLights(array) {
+      let light = false;
+      for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        light = cicle(element, light);
+      }
+      return light;
+    }
+
+    function cicle(times, state) {
+      for (let i = 0; i < times; i++) {
+        if (state === false) {
+          state = true;
+        } else {
+          state = false;
+        }
+      }
+      return state;
+    }
+
+
+    console.log(turnLights(lights1));
+    console.log(turnLights(lights2));
+    console.log(turnLights(lights3));
+    
+    
+
+    const voters = [
+    {name:'Bob' , age: 30, voted: true},
+    {name:'Jake' , age: 32, voted: true},
+    {name:'Kate' , age: 25, voted: false},
+    {name:'Sam' , age: 20, voted: false},
+    {name:'Phil' , age: 21, voted: true},
+    {name:'Ed' , age:55, voted:true},
+    {name:'Tami' , age: 54, voted:true},
+    {name: 'Mary', age: 31, voted: false},
+    {name: 'Becky', age: 43, voted: false},
+    {name: 'Joey', age: 41, voted: true},
+    {name: 'Jeff', age: 30, voted: true},
+    {name: 'Zack', age: 19, voted: false}
+];
+
+
+    function checkVote(array) {
+      const didVoted = [];
+      for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        if (element.voted === true) {
+          didVoted.push(element);
+        }
+      }
+      return didVoted;
+    }
+
+    function groupVoters(array) {
+
+      const actuallArray = (checkVote(array));
+
+      const voters18 = [];
+      const voters26 = [];
+      const voters36 = [];
+
+      for (let i = 0; i < actuallArray.length; i++) {
+        const element = actuallArray[i];
+        if (element.age > 18 && element.age < 25) {
+          voters18.push(element);
+        }
+        if (element.age > 26 && element.age < 35) {
+          voters26.push(element);
+        }
+        if (element.age > 36 && element.age < 55) {
+          voters36.push(element);
+        }
+      }
+        console.log(`18-25: ${voters18.length * 100 /array.length}%`);
+        console.log(`26-35: ${voters26.length * 100 /array.length}%`);
+        console.log(`36-55: ${voters36.length * 100 /array.length}%`);
+
+    }
+
+       groupVoters(voters);
+
+  </script>
+</body>
+</html>
