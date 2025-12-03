@@ -113,7 +113,7 @@ function countPositive(array) {
 console.log(countPositive(numbers));
 addArray(numbers, nums);
 
-*//*
+*/
 const nums = [10,20,30,55,75,1,56];
 const nums2 = [-10,20,30,55,-75,1,56];
 const nums3 = [];
@@ -145,7 +145,7 @@ minMax(nums2);
 minMax(nums3);
 minMax(nums4);
 
-*/
+
 
 const nombres = ['David', 'Sarah', 'Sarah', 'David', 'Aji', 'Ito', 'Ito','Babaji','Copito']
 

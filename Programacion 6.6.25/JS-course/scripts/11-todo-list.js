@@ -38,7 +38,7 @@ function addTodo() {
     //dauDate: dueDate
       name,
       dueDate
-    });
+  });
   dateInputElement.value = '';
   inputElement.value = '';
 
