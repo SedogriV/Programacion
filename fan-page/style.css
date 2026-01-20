@@ -1,0 +1,202 @@
+/* 1. GLOBAL VARIABLES & RESET */
+:root {
+    --bg-color: #121212;        /* Main dark background */
+    --card-bg: #1e1e1e;         /* Slightly lighter for video cards */
+    --text-color: #ffffff;      /* White text */
+    --accent-color: #E0B0FF;    /* That "Niiyamai" Lavender */
+    --accent-hover: #D18CE0;    /* Slightly darker purple for hover effects */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean, modern font */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* 2. HERO SECTION (The Landing Area) */
+.hero {
+    height: 90vh; /* Takes up 90% of the screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #121212 100%); /* Subtle glow effect */
+}
+
+.profile-container {
+    max-width: 600px;
+    padding: 20px;
+}
+
+/* Round Profile Picture */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Makes it a perfect circle */
+    border: 4px solid var(--accent-color); /* Purple ring around the picture */
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(224, 176, 255, 0.3); /* Soft purple glow */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase; /* Makes header look like her banner */
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #cccccc; /* Slightly dimmed text for description */
+    margin-bottom: 30px;
+}
+
+/* 3. THE BUTTON */
+.btn-subscribe {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: #121212; /* Dark text on light button for contrast */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px; /* Pill shape */
+    transition: all 0.3s ease; /* Smooth animation */
+    text-transform: uppercase;
+}
+
+.btn-subscribe:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-3px); /* Moves up slightly when hovered */
+    box-shadow: 0 5px 15px rgba(224, 176, 255, 0.4); /* Glow gets stronger */
+}
+
+/* 4. VIDEO SECTION GRID (Preparing for JS) */
+.latest-videos {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.latest-videos h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: var(--accent-color);
+}
+
+.video-grid {
+    display: grid;
+    /* This automatically arranges cards: 1 column on phone, 3 on desktop */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
+}
+
+/* 5. ABOUT SECTION (Sobre Mí) */
+.about-section {
+    background-color: var(--card-bg); /* Slightly lighter background */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #dddddd;
+}
+
+/* Social Buttons */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Wraps to next line on small phones */
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* Brand Colors */
+.youtube { background-color: #FF0000; }
+.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.tiktok { background-color: #000000; border: 1px solid #333; }
+
+/* 6. VIDEO CARD STYLES */
+.video-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden; /* Keeps image corners rounded */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Removes underline from links */
+    color: white;
+    display: block; /* Makes the whole card clickable */
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.thumbnail-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Enforces YouTube video shape */
+    overflow: hidden;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-info {
+    padding: 15px;
+}
+
+.video-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limits title to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.video-views {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+}
