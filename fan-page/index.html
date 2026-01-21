@@ -8,7 +8,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <nav class="navbar">
+    <div class="nav-logo">Niiyamai</div>
+    <ul class="nav-links">
+        <li><a href="#about">Sobre Mí</a></li>
+        <li><a href="#shorts">Shorts</a></li>
+        <li><a href="#videos">Videos</a></li>
+    </ul>
+    </nav>
     <header class="hero">
         <div class="profile-container">
             <img src="https://yt3.googleusercontent.com/YSYagx5ihtNHjVRAz3LKd5iIR7YIjwDRkRIlC0-UHLPZ_p2X3EL8r8d7gWsjDiYMJPXCdoSjUyU=s160-c-k-c0x00ffffff-no-rj" alt="Profile" class="profile-pic">
@@ -21,7 +28,7 @@
             </a>
         </div>
     </header>
-    <section class="about-section">
+    <section class="about-section" id="about">
         <div class="about-container">
             <h2>Sobre Mí</h2>
             <p class="about-text">
@@ -40,12 +47,18 @@
                 <a href="https://www.tiktok.com/@niiyamaixoxo" target="_blank" class="social-btn tiktok">
                     <i class="fa-brands fa-tiktok"></i> TikTok
                 </a>
-                </div>
+            </div>
         </div>
     </section>
-    <section class="latest-videos">
-        <h2>Ultimos Videos
-        </h2>
+
+    <section class="shorts-section" id="shorts">
+        <h2><i class="fa-brands fa-youtube" style="color:red;"></i> Shorts</h2>
+        <div class="shorts-scroller" id="shorts-container">
+            </div>
+    </section>
+
+    <section class="latest-videos" id="videos">
+        <h2>Últimos Videos</h2>
         <div class="video-grid" id="video-grid">
             </div>
     </section>
