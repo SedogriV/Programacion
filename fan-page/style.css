@@ -21,13 +21,37 @@ body {
 }
 
 /* 2. HERO SECTION (The Landing Area) */
+
+
 .hero {
-    height: 90vh; /* Takes up 90% of the screen height */
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: radial-gradient(circle at center, #1a1a1a 0%, #121212 100%); /* Subtle glow effect */
+    position: relative; /* Needed for the overlay to sit right */
+    
+    /* THE BACKGROUND MAGIC */
+    /* Layer 1: A gradient that goes from Dark Gray to a transparent Purple.
+                This creates the "fade" effect and tints the image.
+       Layer 2: The actual pattern image.
+    */
+    background: 
+        linear-gradient(
+            to bottom, 
+            rgba(18, 18, 18, 0.95),  /* Starts almost purely dark at top */
+            rgba(30, 30, 30, 0.85)   /* Slightly lighter/transparent at bottom */
+        ),
+        url('img/hero-pattern.jpg'); /* <--- Make sure your file name matches this! */
+
+    /* Pattern Settings */
+    background-repeat: repeat;   /* Repeats the pattern like wallpaper */
+    background-size: 1000px;      /* Adjust this number to make the controllers bigger/smaller */
+    background-position: center;
+    
+    /* Optional: This blends the image with the background color for a smoother look */
+    background-blend-mode: overlay;
+    animation: scrollBackground 60s linear infinite;
 }
 
 .profile-container {
@@ -124,6 +148,24 @@ body {
 }
 
 /* Social Buttons */
+
+/* Discord Brand Color (Blurple) */
+.discord {
+    background-color: #5865F2;
+}
+
+/* Kick Brand Color (Neon Green) */
+.kick {
+    background-color: rgb(67, 197, 20);
+    color: #000000; /* Black text looks best on neon green */
+    border: 1px solid rgb(67, 197, 20); /* Matches border to bg */
+}
+
+/* Ensure the icon inside the Kick button is also black */
+.kick i {
+    color: #000000;
+}
+
 .social-links {
     display: flex;
     justify-content: center;
@@ -416,4 +458,9 @@ html {
     .nav-links a {
         font-size: 0.9rem;
     }
+}
+
+@keyframes scrollBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 100%; }
 }
